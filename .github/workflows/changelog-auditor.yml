@@ -1,0 +1,23 @@
+name: changelog-auditor
+on:
+  pull_request:
+    types: [ closed, edited, opened, synchronize, ready_for_review ]
+  workflow_dispatch:
+
+jobs:
+  check-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: 'sourcegraph/devx-service'
+          branch: jsm/changelog
+      - uses: actions/setup-go@v4
+        with: { go-version: '1.22' }
+
+      - run: 'go run ./cmd/changelog audit'
+        env:
+          GITHUB_EVENT_PATH: ${{ env.GITHUB_EVENT_PATH }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}         
+ 
