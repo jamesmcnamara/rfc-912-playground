@@ -12,6 +12,7 @@ jobs:
         with:
           repository: 'sourcegraph/devx-service'
           ref: jsm/changelog
+          token: ${{ secrets.GH_TOKEN }}
       - uses: actions/setup-go@v4
         with: { go-version: '1.22' }
 
