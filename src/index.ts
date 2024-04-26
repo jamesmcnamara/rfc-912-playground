@@ -55,11 +55,11 @@ const prTitle = (pr: PR) => `${pr.type}/${pr.team}: ${pr.title}`;
 
 const prBody = (pr: PR) => `${pr.body.description}
 
-Changelog:
+## Changelog
 ${' - ' + pr.body.changelog.join('\n - ')}`;
 
 async function main() {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 1; i++) {
     const pr = generatePR();
     await $$`git checkout -b ${pr.branch}`;
 
@@ -75,7 +75,7 @@ async function main() {
       pr
     )} --body ${prBody(pr)}`;
 
-    await $$`gh pr merge --squash ${url}`;
+    // await $$`gh pr merge --squash ${url}`;
   }
 }
 
