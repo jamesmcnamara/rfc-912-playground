@@ -20,4 +20,5 @@ jobs:
         env:
           GITHUB_EVENT_PATH: ${{ env.GITHUB_EVENT_PATH }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_LOGIN: jamesmcnamara
           GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
