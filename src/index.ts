@@ -55,7 +55,8 @@ const prTitle = (pr: PR) => `${pr.type}/${pr.team}: ${pr.title}`;
 
 const prBody = (pr: PR) => `${pr.body.description}
 
-## Changelog
+
+## Changelog:
 ${' - ' + pr.body.changelog.join('\n - ')}`;
 
 async function main() {
