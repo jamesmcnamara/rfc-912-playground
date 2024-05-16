@@ -18,9 +18,11 @@ jobs:
       - uses: actions/setup-go@v4
         with: { go-version: '1.22' }
 
-      - run: 'go run ./cmd/pr-auditor --issues.repo-owner=jamesmcnamara --issues.repo-name=rfc-912-playground'
+      - run: 'go run ./cmd/pr-auditor'
         env:
           GITHUB_EVENT_PATH: ${{ env.GITHUB_EVENT_PATH }}
           GITHUB_TOKEN: ${{ secrets.PR_AUDITOR_TOKEN }}
           SKIP_STATUS: true
+          ISSUES_REPO_NAME: rfc-912-playground
+          ISSUES_REPO_OWNER: jamesmcnamara
           GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
