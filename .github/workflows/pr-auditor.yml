@@ -2,28 +2,14 @@
 name: pr-auditor
 on:
   pull_request:
-    types: [ closed, edited, opened, synchronize, ready_for_review ]
+    types: [closed, edited, opened, synchronize, ready_for_review]
   workflow_dispatch:
 
 jobs:
   check-pr:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: 'sourcegraph/devx-service'
-          ref: jsm/pr-auditor
-          token: ${{ secrets.GH_TOKEN }}
-
-      - uses: actions/setup-go@v5
-        with:  
-          go-version: '1.22'
-
-      - run: 'go run ./cmd/pr-auditor'
-        env:
-          GITHUB_EVENT_PATH: ${{ env.GITHUB_EVENT_PATH }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SKIP_STATUS: true
-          ISSUES_REPO_NAME: rfc-912-playground
-          ISSUES_REPO_OWNER: jamesmcnamara
-          GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    uses: sourcegraph/devx-service/.github/workflows/pr-auditor.yml@jsm/pr-auditor
+    secrets: inherit
+    with:
+      skip-status: true
+      issues-repo-name: rfc-912-playground
+      issues-repo-owner: jamesmcnamara
