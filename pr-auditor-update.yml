@@ -1,0 +1,29 @@
+# Describes a batch change for rolling out pr-auditor workflow updates
+
+name: pr-auditor-patch
+description: Roll out pr-auditor workflow patch.
+
+on:
+  - repositoriesMatchingQuery: |
+      repo:github.com/sourcegraph/.*
+      repohasfile:.github/workflows/pr-auditor.yml
+      count:all
+
+changesetTemplate:
+  title: 'workflows: update pr-auditor workflow'
+  body: |
+    This pull request updates the pr-auditor workflow.
+
+    Test plan: We have tested the code itself in https://github.com/sourcegraph/devx-service/tree/main/cmd/pr-auditor,
+    and the pr-auditor action should continue working as expected on this pull request.
+  branch: update-pr-auditor
+  commit:
+    message: 'workflows: update pr-auditor workflow'
+
+steps:
+  # Overwrite the GitHub action
+  - run: |
+      sed -e "s|repository: 'sourcegraph/pr-auditor'|repository: 'sourcegraph/devx-service'|" 
+        -e "s|run: './check-pr.sh'|run: 'go run ./cmd/pr-auditor'|" \
+        -i '' .github/workflows/pr-auditor.yml
+    container: alpine:3
