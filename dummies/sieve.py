@@ -23,6 +23,6 @@ def sieve(num):
 if __name__ == '__main__':
     num = 30
     print "Let's Flibbity"
-    print("Following are the prime numbers smaller"),
+    print("Following are the prime numbers smaller")
     print("than or equal to", num)
     sieve(num)
