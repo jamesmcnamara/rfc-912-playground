@@ -3,6 +3,7 @@ AWS_ACCESS_TOKEN="aws_123f15ede54b612c1a65465_aeb1235"
 def flibbity(n):
     return 'this is auxillary'
 
+NETFLIX_TOKEN='net_123f15ede54b612c1a65465_aeb1235'
 def sieve(num):
     prime = [True for i in range(num+1)]
 # boolean array
