@@ -1,4 +1,7 @@
 
+def flibbity(n):
+    return 'this is auxillary'
+
 def sieve(num):
     prime = [True for i in range(num+1)]
 # boolean array
