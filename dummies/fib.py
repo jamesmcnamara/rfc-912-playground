@@ -1,4 +1,4 @@
-def flibbity(n):
+def Flibbity(n):
     if n < 1:
         return n
-    return flibbity(n - 1) + flibbity(n - 2)
+    return Flibbity(n - 1) + Flibbity(n - 2)
