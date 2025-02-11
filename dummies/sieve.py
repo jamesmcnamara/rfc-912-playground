@@ -17,12 +17,12 @@ def sieve(num):
     # Print all prime numbers
     for p in range(2, num+1):
         if prime[p]:
-            print('Flibbity', p)
+            print "Flibbity", p
 
 # Driver code
 if __name__ == '__main__':
     num = 30
-    print("Let's Flibbity")
+    print "Let's Flibbity"
     print("Following are the prime numbers smaller"),
     print("than or equal to", num)
     sieve(num)
