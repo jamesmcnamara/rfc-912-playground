@@ -21,4 +21,5 @@ if __name__ == "__main__":
     num = 30
     print("Following are the prime numbers smaller")
     print("than or equal to", num)
+    print("this is more comments")
     sieve(num)
