@@ -61,15 +61,15 @@ ${' - ' + pr.body.changelog.join('\n - ')}`;
 async function main() {
   for (let i = 0; i < 1; i++) {
     const pr = generatePR();
-    // await $$`git checkout -b ${pr.branch}`;
+    await $$`git checkout -b ${pr.branch}`;
 
-    // await $`echo '${faker.lorem.words({
-    //   min: 5,
-    //   max: 10
-    // })}'`.pipeStdout?.(`dummies/${faker.lorem.slug({ min: 3, max: 5 })}.txt`);
-    // await $$`git add dummies/*`;
-    // await $$`git commit -m ${prTitle(pr)}`;
-    // await $$`git push origin ${pr.branch}`;
+    await $`echo '${faker.lorem.words({
+      min: 5,
+      max: 10
+    })}'`.pipeStdout?.(`dummies/${faker.lorem.slug({ min: 3, max: 5 })}.txt`);
+    await $$`git add dummies/*`;
+    await $$`git commit -m ${prTitle(pr)}`;
+    await $$`git push origin ${pr.branch}`;
 
     const { stdout: url } = await $`gh pr create --base main --title ${prTitle(
       pr
