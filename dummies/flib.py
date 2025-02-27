@@ -1,8 +1,20 @@
-SG_TOKEN = 'sgp_a12356464561_bd321242ef234234234267'
+SG_TOKEN = "sgp_a12356464561_bd321242ef234234234267"
+
 
 def flibbity(n):
-    GEMINI_TOKEN = 'gem_123f15ede54b612c1a65465_aeb1235'
-    print "flib is", n
     if n < 1:
         return n
     return flibbity(n - 1) + flibbity(n - 2)
+
+
+def flibbity_flab(n):
+    return flibbity(n) + flibbity(n)
+
+
+def flibbity_dynamic(n):
+    res = [0] * (n + 1)
+    res[0] = 0
+    res[1] = 1
+    for i in range(2, n + 1):
+        res[i] = res[i - 1] + res[i - 2]
+    return res[n]
