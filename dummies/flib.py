@@ -1,10 +1,11 @@
 SG_TOKEN = "sgp_a12356464561_bd321242ef234234234267"
 
 
-def flibbity(n):
+def flibbity(log_str, n):
+    print(log_str)
     if n < 1:
         return n
-    return flibbity(n - 1) + flibbity(n - 2)
+    return flibbity(n - 1, "log_str1") + flibbity(n - 2, "log_str2")
 
 
 def flibbity_flab(n):
