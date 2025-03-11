@@ -4,3 +4,5 @@ Check for logical mistakes or inverted conditions:
 - Call out debugging print statements that are not removed.
 - Identify any suspicious conditionals that seem inverted or contradictory
 - Look for arguments that are passed in the wrong order.
+
+Any logic errors should be considered an ERROR
