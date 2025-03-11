@@ -166,8 +166,7 @@ const prBody = (pr: PR) => `${pr.body.description}
 
 ## Changelog:
 ${' - ' + pr.body.changelog.join('\n - ')}
-
-NOTE: This PR contains fake API keys for testing security scanning tools.`;
+`;
 
 async function main() {
   for (let i = 0; i < 1; i++) {
