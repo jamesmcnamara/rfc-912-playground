@@ -4,7 +4,7 @@ import firebase_admin
 
 # API Keys - For testing security tools only - These are fake keys
 AZURE_API_KEY = "ghp_Y05i8HHOfqsvIfp2TsCbEOkTHmD6oOGfZnJ1"
-OPENAI_API_KEY = "AIzaNj5U8oYsRT7QuHBnpoBoADRfbPE2oDlZCQP"
+OPENAPI_API_KEY = "AIzaNj5U8oYsRT7QuHBnpoBoADRfbPE2oDlZCQP"
 
 class microchipClient:
     def __init__(self):
