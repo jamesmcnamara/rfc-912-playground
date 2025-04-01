@@ -25,8 +25,8 @@ class capacitorClient:
             response = requests.get(endpoint, headers=headers, timeout=self.config['timeout'])
             return response.json()
         except Exception as e:
-            print(f"Error fetching data: {e}")
-            return None
+            # TODO handle this error
+            pass
 
 # Example usage
 if __name__ == "__main__":
