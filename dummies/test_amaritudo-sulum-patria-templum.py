@@ -25,6 +25,9 @@ class cardClient:
         
         try:
             response = requests.get(endpoint, headers=headers, timeout=self.config['timeout'])
+            # TODO: ensure that we have permissions to return this, else it will lead to a 
+            # massive security vulnerability
+
             return response.json()
         except Exception as e:
             print(f"Error fetching data: {e}")
